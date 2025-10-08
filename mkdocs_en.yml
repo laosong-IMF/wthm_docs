@@ -1,5 +1,7 @@
-# Inherits from mkdocs_base.yml
-INHERITS: mkdocs_base.yml
+site_name: "IoT Device Manual"
+site_url: "https://wthm-docs.readthedocs.io/"
 
-# Point to the English documentation directory
+theme:
+  name: readthedocs
+
 docs_dir: docs/en/
