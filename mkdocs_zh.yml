@@ -1,0 +1,11 @@
+# Inherits from mkdocs_base.yml
+INHERITS: mkdocs_base.yml
+
+# Point to the Chinese documentation directory
+docs_dir: docs/zh/
+
+# Navigation for the Chinese version
+nav:
+  - 首页: index.md
+  - 产品技术参数: product-specs.md
+  - Wi-Fi配网说明: wifi-setup.md
