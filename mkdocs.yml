@@ -1,0 +1,32 @@
+
+site_name: "IoT 设备使用手册"
+site_url: "https://your-username.github.io/your-repo/" # 请替换成您的 URL
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色模式
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
+
+plugins:
+  - search
