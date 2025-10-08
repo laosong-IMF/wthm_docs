@@ -1,0 +1,14 @@
+
+site_name: "IoT 设备使用手册"
+site_url: "https://your-username.github.io/your-repo/" # 请替换成您的 URL
+
+theme:
+  name: readthedocs
+
+nav:
+  - 首页: index.md
+  - 产品技术参数: product-specs.md
+  - Wi-Fi配网说明: wifi-setup.md
+
+plugins:
+  - search

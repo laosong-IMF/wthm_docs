@@ -1,5 +1,0 @@
-# Inherits from mkdocs_base.yml
-INHERITS: mkdocs_base.yml
-
-# Point to the English documentation directory
-docs_dir: docs/en/
