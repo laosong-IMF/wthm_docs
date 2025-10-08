@@ -3,30 +3,13 @@ site_name: "IoT 设备使用手册"
 site_url: "https://laosong-IMF.github.io/wthm_dosc/" # 请替换成您的 URL
 
 theme:
-  name: material
+  name: readthedocs
   language: zh
-  features:
-    - navigation.tabs
-    - navigation.top
-    - search.suggest
-  palette:
-    - scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: 切换到暗色模式
-    - scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: 切换到亮色模式
 
-extra:
-  alternate:
-    - name: English
-      link: /en/
-      lang: en
-    - name: 中文
-      link: /zh/
-      lang: zh
+nav:
+  - 首页: index.md
+  - 产品技术参数: product-specs.md
+  - Wi-Fi配网说明: wifi-setup.md
 
 plugins:
   - search
