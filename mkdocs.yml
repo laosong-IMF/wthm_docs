@@ -1,6 +1,6 @@
 
 site_name: "IoT 设备使用手册"
-site_url: "https://your-username.github.io/your-repo/" # 请替换成您的 URL
+site_url: "https://laosong-IMF.github.io/wthm_dosc/" # 请替换成您的 URL
 
 theme:
   name: material
