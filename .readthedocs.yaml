@@ -11,13 +11,13 @@ build:
   jobs:
     # These jobs run before the main build job
     pre_build:
-      # Select the correct mkdocs config file based on the RTD project name
+      # Select the correct mkdocs config file based on the language
       - |
-        if [ "$READTHEDOCS_PROJECT" = "wthm-docs-zh" ]; then
-          echo "Building Chinese docs, using mkdocs_zh.yml"
+        if [ "$READTHEDOCS_LANGUAGE" = "zh" ]; then
+          echo "Building Chinese (zh) docs"
           cp mkdocs_zh.yml mkdocs.yml
         else
-          echo "Building English docs, using mkdocs_en.yml"
+          echo "Building English (en) docs"
           cp mkdocs_en.yml mkdocs.yml
         fi
 
