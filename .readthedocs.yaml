@@ -19,6 +19,7 @@ build:
           cp mkdocs_zh.yml mkdocs.yml
         else
           echo "Building English (en) docs"
+          cp -r docs/assets docs/en/
           cp mkdocs_en.yml mkdocs.yml
         fi
 

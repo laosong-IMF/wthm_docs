@@ -10,3 +10,6 @@ nav:
   - 首页: index.md
   - 产品技术参数: product-specs.md
   - Wi-Fi配网说明: wifi-setup.md
+
+markdown_extensions:
+  - attr_list
