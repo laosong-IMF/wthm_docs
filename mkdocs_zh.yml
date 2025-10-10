@@ -4,9 +4,9 @@ site_url: "https://wthm-docs.readthedocs.io/"
 theme:
   name: readthedocs
 
-docs_dir: docs/zh/
+docs_dir: docs
 
 nav:
-  - 首页: index.md
-  - 产品技术参数: product-specs.md
-  - Wi-Fi配网说明: wifi-setup.md
+  - 首页: zh/index.md
+  - 产品技术参数: zh/product-specs.md
+  - Wi-Fi配网说明: zh/wifi-setup.md
