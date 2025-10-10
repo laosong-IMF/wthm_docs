@@ -8,9 +8,9 @@
 
 同时按住两侧的**⟲**和√按键5秒钟进入恢复出厂设置界面。设置恢复出厂设置并重启整个过程持续约十来秒。
 
-![NTHM面板灰2](../assets/media/image1.png){width="1.8506944444444444in" height="1.8506944444444444in"}
-![NTHM面板IP](../assets/media/image2.png){width="1.8506944444444444in" height="1.8506944444444444in"}
-![NTHM面板出厂](../assets/media/image3.png){width="1.8506944444444444in" height="1.8506944444444444in"}
-![NTHM面板](../assets/media/image4.png){width="1.8506944444444444in" height="1.8506944444444444in"}
-![NTHM面板掩码](../assets/media/image5.png){width="1.8506944444444444in" height="1.8506944444444444in"}
-![NTHM面板出厂](../assets/media/image6.png){width="1.8506944444444444in" height="1.8506944444444444in"}
+![NTHM面板灰2](assets/media/image1.png){width="1.8506944444444444in" height="1.8506944444444444in"}
+![NTHM面板IP](assets/media/image2.png){width="1.8506944444444444in" height="1.8506944444444444in"}
+![NTHM面板出厂](assets/media/image3.png){width="1.8506944444444444in" height="1.8506944444444444in"}
+![NTHM面板](assets/media/image4.png){width="1.8506944444444444in" height="1.8506944444444444in"}
+![NTHM面板掩码](assets/media/image5.png){width="1.8506944444444444in" height="1.8506944444444444in"}
+![NTHM面板出厂](assets/media/image6.png){width="1.8506944444444444in" height="1.8506944444444444in"}

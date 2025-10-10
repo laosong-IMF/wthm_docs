@@ -4,7 +4,7 @@ site_url: "https://wthm-docs.readthedocs.io/"
 theme:
   name: readthedocs
 
-docs_dir: docs
+docs_dir: docs/en/
 
 nav:
-  - Home: en/index.md
+  - Home: index.md
