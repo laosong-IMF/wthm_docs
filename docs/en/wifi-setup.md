@@ -8,9 +8,6 @@ Press and hold the middle ↓ and ↑ buttons simultaneously for 5 seconds to en
 
 Press and hold the **⟲** and √ buttons on the sides simultaneously for 5 seconds to enter the factory reset interface. The factory reset and restart process takes about ten seconds.
 
-![NTHM Panel Gray 2](assets/media/image1.png){width=180}
-![NTHM Panel IP](assets/media/image2.png){width=180}
-![NTHM Panel Factory](assets/media/image3.png){width=180}
-![NTHM Panel](assets/media/image4.png){width=180}
-![NTHM Panel Mask](assets/media/image5.png){width=180}
-![NTHM Panel Factory](assets/media/image6.png){width=180}
+![NTHM Panel Gray 2](images/image1.png){width=180}
+![NTHM Panel IP](images/image2.png){width=180}
+![NTHM Panel Factory](images/image3.png){width=180}
