@@ -73,3 +73,58 @@
     c. MkDocs 基于 `docs/zh` 目录和中文配置，生成一套纯净的中文版 HTML 网站。
 4.  **在构建 `en` 版本时**：重复类似的过程，生成英文版网站。
 5.  Read the Docs 将这两套独立的网站分别部署到 `/zh-cn/` 和 `/en/` 路径下，最终呈现给用户一个完整的多语言文档。
+
+---
+
+### 6. 本地开发与 Read the Docs 行为差异的根源及解决方案
+
+**问题现象：**
+
+在 Read the Docs 上，文档（包括图片）可以正常显示。但在本地使用 `mkdocs serve -f mkdocs_en.yml` 或 `mkdocs serve -f mkdocs_zh.yml` 时，图片会提示找不到，导致无法正常加载。
+
+**根源分析：**
+
+这种差异的根本原因在于 Read the Docs 的构建流程中，有一个关键的 `pre_build` 步骤（定义在 `.readthedocs.yaml` 中），而本地的 `mkdocs serve` 命令不会自动执行这个步骤。
+
+具体来说：
+
+1.  **Read the Docs 的行为：**
+    当 Read the Docs 构建文档时，它会根据当前构建的语言（例如 `zh-cn` 或 `en`），在运行 MkDocs 之前，执行以下操作：
+    *   `cp -r docs/assets docs/zh/` (或 `cp -r docs/assets docs/en/`)：将项目根目录下的 `docs/assets` 目录（包含所有共享图片）完整复制到当前语言的文档目录（例如 `docs/zh/`）内部。
+    *   `cp mkdocs_zh.yml mkdocs.yml` (或 `cp mkdocs_en.yml mkdocs.yml`)：将对应语言的配置文件复制并重命名为 `mkdocs.yml`。
+    这样，当 MkDocs 真正开始构建时，它所使用的 `docs_dir` (例如 `docs/zh/`) 内部已经包含了 `assets` 目录的副本。因此，Markdown 文件中引用的 `assets/media/imageX.png` 路径能够正确解析，图片也就能正常显示。
+
+2.  **本地 `mkdocs serve` 的行为：**
+    在本地运行 `mkdocs serve -f mkdocs_zh.yml` 时，MkDocs 会将 `docs/zh/` 视为其文档根目录。然而，由于没有执行上述的 `cp -r` 操作，`docs/zh/` 目录下并没有 `assets` 目录的副本。因此，当 `docs/zh/wifi-setup.md` 尝试引用 `assets/media/imageX.png` 时，MkDocs 会在 `docs/zh/assets/media/imageX.png` 路径下查找，但该路径不存在，从而导致图片加载失败并报错。
+
+**解决方案：**
+
+为了在本地开发环境中也能正确预览文档并加载图片，您需要在运行 `mkdocs serve` 命令之前，手动执行与 Read the Docs `pre_build` 步骤中相同的 `cp -r` 操作。
+
+**具体操作步骤：**
+
+1.  **复制共享资产：**
+    在项目根目录下执行以下命令，将 `docs/assets` 复制到 `docs/zh/` 和 `docs/en/`：
+    ```bash
+    cp -r docs/assets docs/zh/
+    cp -r docs/assets docs/en/
+    ```
+2.  **运行本地服务：**
+    执行您需要的 MkDocs 服务命令，例如：
+    ```bash
+    mkdocs serve -f mkdocs_en.yml
+    # 或者
+    mkdocs serve -f mkdocs_zh.yml
+    ```
+    此时，图片应该能够正常加载。
+
+3.  **清理（可选但推荐）：**
+    在停止本地服务后，您可以选择删除这些复制的 `assets` 目录，以保持工作目录的整洁，避免不必要的 Git 跟踪：
+    ```bash
+    rm -rf docs/zh/assets
+    rm -rf docs/en/assets
+    ```
+
+**自动化本地开发流程：**
+
+为了简化上述步骤，我已经为您创建了一个 `serve_docs.sh` 脚本。您只需运行 `bash serve_docs.sh`，它将自动完成复制资产、启动两个语言的 MkDocs 服务，并在您停止服务时自动清理复制的资产。这样既能保证本地预览的正确性，又不会影响 Git 仓库的结构。
