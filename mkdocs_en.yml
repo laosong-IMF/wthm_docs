@@ -8,3 +8,5 @@ docs_dir: docs/en/
 
 nav:
   - Home: index.md
+  - Product Specifications: product-specs.md
+  - Wi-Fi & Button Setup: wifi-setup.md
