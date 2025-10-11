@@ -9,7 +9,8 @@ docs_dir: docs/en/
 nav:
   - Home: index.md
   - Product Specifications: product-specs.md
-  - Wi-Fi Setup: wifi-setup.md
+  - Panel Operations: panel-operations.md
+  - Wi-Fi Configuration: wifi-config.md
 
 markdown_extensions:
   - attr_list
