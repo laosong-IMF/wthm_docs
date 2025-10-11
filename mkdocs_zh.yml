@@ -1,4 +1,4 @@
-site_name: "IoT 设备使用手册"
+site_name: "WTHM IoT 设备使用手册"
 site_url: "https://wthm-docs.readthedocs.io/"
 
 theme:
@@ -9,7 +9,8 @@ docs_dir: docs/zh/
 nav:
   - 首页: index.md
   - 产品技术参数: product-specs.md
-  - Wi-Fi配网说明: wifi-setup.md
+  - 液晶屏和按键: panel-operations.md
+  - Wi-Fi配网: wifi-config.md
 
 markdown_extensions:
   - attr_list

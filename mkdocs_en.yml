@@ -1,4 +1,4 @@
-site_name: "IoT Device Manual"
+site_name: "WTHM IoT Device Manual"
 site_url: "https://wthm-docs.readthedocs.io/"
 
 theme:
@@ -9,7 +9,7 @@ docs_dir: docs/en/
 nav:
   - Home: index.md
   - Product Specifications: product-specs.md
-  - Wi-Fi & Button Setup: wifi-setup.md
+  - Wi-Fi Setup: wifi-setup.md
 
 markdown_extensions:
   - attr_list
