@@ -3,7 +3,7 @@ name: Deploy Documentation to GitHub Pages
 on:
   push:
     branches:
-      - main  # 或者您的主分支名，如 master
+      - main  # Or your primary branch, e.g., master
 
 jobs:
   deploy:
@@ -20,5 +20,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r docs/requirements.txt
 
+      - name: Build English Docs
+        run: mkdocs build -f mkdocs_en.yml -d site/en
+
+      - name: Build Chinese Docs
+        run: mkdocs build -f mkdocs_zh.yml -d site/zh
+
+      - name: Create redirect at root
+        run: echo '<meta http-equiv="refresh" content="0; url=./en/">' > site/index.html
+
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
