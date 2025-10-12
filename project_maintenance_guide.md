@@ -89,21 +89,25 @@ Host github.com-company
 
 本项目使用GitHub官方**内置的自动化工作流** (`pages-build-deployment`) 来实现部署，无需自定义工作流文件。
 
-### 5.1. 触发机制
+### 5.1. 触发、构建与发布机制
 
-该工作流由**公司仓库**的 `Settings -> Pages` 配置驱动。
+该工作流的完整机制分为三个步骤：
 
-- **配置**: "Build and deployment" 的 "Source" 必须设置为 "**Deploy from a branch**"，并选择 `main` 分支。
-- **触发**: 每当 `main` 分支有新的 `push` 事件（包括通过`Sync fork`更新），该工作流就会自动运行。
+1.  **触发 (Trigger)**: 每当 `main` 分支有新的 `push` 事件（包括通过`Sync fork`更新），该工作流就会自动从 `main` 分支拉取**源代码**并开始构建。
+
+2.  **构建与提交 (Build & Commit)**: 工作流在云端构建您的 `mkdocs` 项目。关键在于，构建完成后，它会将生成的静态网站文件（HTML/CSS等）自动**提交到一个名为 `gh-pages` 的特殊分支**上。
+
+3.  **发布与配置 (Serve & Configure)**: GitHub Pages服务器从 `gh-pages` 分支读取静态文件并将其发布。因此，仓库的配置**必须**如下：
+    *   **路径**: `Settings -> Pages`
+    *   **Source**: "Deploy from a branch"
+    *   **Branch**: 必须选择 **`gh-pages`** 分支
 
 ### 5.2. 智能构建
 
 GitHub的内置工作流足够智能，可以自动识别 `mkdocs` 项目：
-- 它会检测仓库根目录下的 `mkdocs.yml` 和 `requirements.txt` 文件。
-- 它会自动创建一个包含Python的环境。
-- 它会自动运行 `pip install -r requirements.txt` 来安装依赖。
+- 它会检测 `main` 分支根目录下的 `mkdocs.yml` 和 `requirements.txt` 文件。
+- 它会自动创建一个包含Python的环境并安装依赖。
 - 它会自动运行 `mkdocs build` 来构建静态网站。
-- 最后，它会将构建好的网站发布到GitHub Pages。
+- 最后，它会将构建产物推送到 `gh-pages` 分支，以供发布。
 
 这种方式简化了仓库的维护，因为所有的构建逻辑都由GitHub官方托管和维护。
-
