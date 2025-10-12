@@ -18,9 +18,9 @@
 | **私人仓库** | **上游仓库 (Upstream)** | `YourPrivateUsername/YourDocsRepo` | 存储所有文档的源文件，是主要工作区。 |
 | **公司仓库** | **下游仓库 (Downstream)** | `YourCompanyUsername/YourDocsRepo` | 从上游仓库同步内容，并负责执行部署工作流。 |
 
-## 3. SSH多账户管理
+## 3. SSH多账户管理（备用参考）
 
-为了在同一台本地机器上同时操作两个GitHub账户，我们配置了SSH，使其能根据目标仓库自动选择正确的SSH密钥。
+本节内容描述了如何在同一台本地机器上通过命令行同时管理两个GitHub账户。**对于当前已确定的“Sync fork”工作流，本节操作并非必需**，但作为一份有价值的技术参考予以保留，以备未来可能需要的更复杂的命令行操作。
 
 ### 3.1. 问题背景
 
@@ -52,63 +52,38 @@ Host github.com-company
 
 - **操作公司仓库**:
   ```bash
-  # 克隆
   git clone git@github.com-company:YourCompanyUsername/YourDocsRepo.git
-  # 或修改现有仓库
-  git remote set-url origin git@github.com-company:YourCompanyUsername/YourDocsRepo.git
   ```
 
 - **操作私人仓库**:
   ```bash
-  # 克隆
   git clone git@github.com-personal:YourPrivateUsername/YourDocsRepo.git
-  # 或修改现有仓库
-  git remote set-url origin git@github.com-personal:YourPrivateUsername/YourDocsRepo.git
   ```
-
-#### 验证连接
-
-```bash
-# 测试私人账户连接
-ssh -T git@github.com-personal
-
-# 测试公司账户连接
-ssh -T git@github.com-company
-```
 
 ## 4. 维护与部署流程
 
 ### 4.1. 日常内容更新
 
-所有文档的修改和更新都**必须**在**私人仓库**的本地克隆中进行。
+所有文档的修改和更新都**必须**在**私人仓库** (`YourPrivateUsername/YourDocsRepo`) 的本地克隆中进行。
 
 1.  在本地编辑文档内容。
-2.  像往常一样提交更改：
+2.  像往常一样提交更改并推送到您的私人仓库：
     ```bash
     git add .
     git commit -m "docs: 更新了xxx内容"
-    git push origin main
+    git push
     ```
-3.  此操作仅将代码推送到您的私人仓库。
 
-### 4.2. 通过Pull Request同步与部署
+### 4.2. 通过 Sync fork 同步与部署 (最终方案)
 
-当您希望将最新的文档发布到公司GitHub Pages网站时，需要通过创建一个跨仓库的Pull Request来同步内容并触发自动部署。
+当您希望将最新的文档发布到公司网站时，请使用GitHub官方提供的一键同步功能。
 
-1.  在浏览器中，导航到**公司仓库**的GitHub页面。
-2.  点击仓库主页上方的 `Pull requests` 标签页。
-3.  点击绿色的 `New pull request` 按钮。
-4.  **关键步骤**: 默认页面是比较同一个仓库内的分支。您需要点击蓝色的 `compare across forks` 链接。
-5.  现在您会看到四个下拉框，请按以下方式设置：
-    *   **base repository**: 选择公司仓库 `YourCompanyUsername/YourDocsRepo`
-    *   **base**: 选择 `main` 分支
-    *   **head repository**: 选择您的私人仓库 `YourPrivateUsername/YourDocsRepo`
-    *   **compare**: 选择 `main` 分支
-6.  确认更改后，点击 `Create pull request`。
-7.  为这个PR添加一个标题（例如“Sync from upstream”），然后再次点击 `Create pull request`。
-8.  在PR页面，确认无误后，点击 `Merge pull request` 并确认合并。
+1.  在浏览器中，导航到**公司仓库** (`YourCompanyUsername/YourDocsRepo`) 的GitHub主页。
+2.  在代码列表上方，您会看到一行提示 "This branch is X commits behind `YourPrivateUsername:main`."
+3.  在这行提示的旁边，点击 **`Sync fork`** 按钮。
+4.  在出现的下拉框中，点击绿色的 **`Update branch`** 按钮。
 
-合并操作完成后，GitHub的自动化部署流程将被触发。
+操作完成。这个动作会自动从您的私人仓库拉取最新提交并更新公司仓库，该更新会立即触发后续的网站构建和发布流程。
 
 ## 5. 部署自动化详解
 
@@ -119,7 +94,7 @@ ssh -T git@github.com-company
 该工作流由**公司仓库**的 `Settings -> Pages` 配置驱动。
 
 - **配置**: "Build and deployment" 的 "Source" 必须设置为 "**Deploy from a branch**"，并选择 `main` 分支。
-- **触发**: 每当 `main` 分支有新的 `push` 事件（包括合并Pull Request），该工作流就会自动运行。
+- **触发**: 每当 `main` 分支有新的 `push` 事件（包括通过`Sync fork`更新），该工作流就会自动运行。
 
 ### 5.2. 智能构建
 
