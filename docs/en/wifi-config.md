@@ -9,11 +9,11 @@ To connect the WTHM device to the network, you need to configure the currently a
 Press and hold the **↑** and **↓** buttons on the WTHM device panel for 3 seconds to enter the Wi-Fi configuration process.
 You can release the buttons after the LCD screen displays "Entering setup...".
 
-![up-down-hold](images/up-down-hold.png){width=180}
+![up-down-hold](assets/images/up-down-hold.png){width=180}
 
 When the LCD screen displays the **Wi-Fi AP QR code**, it means the device has successfully entered Wi-Fi configuration mode.
 
-![Wi-Fi AP](images/wifi-ap.png){width=180}
+![Wi-Fi AP](assets/images/wifi-ap.png){width=180}
 
 
 ## 2. Use a mobile phone (or Pad) for configuration
@@ -31,7 +31,7 @@ During the process of scanning the QR code, if the mobile phone system prompts y
 
 After the mobile phone successfully connects to the WTHM device's Wi-Fi network, most mobile phone systems will automatically jump to the configuration page.
 
-![Wi-Fi config](images/wifi-config.jpeg){width=360}
+![Wi-Fi config](assets/images/wifi-config.jpeg){width=360}
 
 On the configuration page, enter the Wi-Fi network name (SSID) and password that the device is to connect to, and then click **Submit** to submit the configuration.
 
