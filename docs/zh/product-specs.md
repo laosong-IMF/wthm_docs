@@ -19,9 +19,9 @@
 - 支持DC电源端子供电，额定输入电压DC12V，范围DC9~28V。
 
 
-## Wi-Fi无线通讯
+## WLAN 无线通讯
 
-Compatible with 2.4G WLAN 802.11 b/g/n standard。
+支持 IEEE 802.11 b/g/n 标准 2.4 GHz 频段 Wi-Fi 网络。
 
 
 ## TTL 3.3V UART串行配置接口

@@ -2,7 +2,7 @@
 
 To connect the WTHM device to the network, you need to configure the currently available Wi-Fi network information for it, including the Wi-Fi AP's network name (SSID) and password.
 
-⚠️ **Note**: The WTHM device only supports 2.4G Wi-Fi networks and does not currently support 5G Wi-Fi networks.
+⚠️ **Note**: The WTHM device compliant with IEEE 802.11 b/g/n standard (2.4 GHz band only). and does not currently support 5G Wi-Fi networks.
 
 ## 1. Enter Configuration Mode
 
@@ -42,3 +42,21 @@ On the configuration page, enter the Wi-Fi network name (SSID) and password that
 After completing the configuration operation, the WTHM device will automatically exit the configuration mode and try to connect to the configured Wi-Fi network.
 
 You can check the Wi-Fi network connection status on the device's LCD screen.
+
+
+!!! note "Wi-Fi Authentication Mode Support Specification"
+
+    Under its standard network configuration, the product natively supports Wi-Fi Access Points (APs) that utilize the following personal-grade security protocols:
+
+    * WPA-Personal / WPA2-Personal (PSK-based, Pre-Shared Key)
+    * WPA3-Personal (SAE-based, Simultaneous Authentication of Equals)
+    * WPA2/WPA3 Mixed/Transition Mode
+
+    Connection to wireless networks employing other authentication methods, such as:
+
+    * Enterprise-grade authentication, e.g., WPA/WPA2/WPA3-Enterprise (802.1X/EAP-based)
+    * Open (Unsecured) networks
+    * Legacy WEP protocol
+
+    requires an advanced configuration procedure. Please contact our technical support team for detailed guidance.
+

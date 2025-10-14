@@ -2,7 +2,7 @@
 
 为使 WTHM 设备联网，你需要为其配置当前可用的Wi-Fi网络信息，包括Wi-Fi AP的网络名称（SSID）和密码。
 
-⚠️ **注意**： WTHM 设备只支持2.4G Wi-Fi网络，暂不支持5G Wi-Fi网络。
+⚠️ **注意**： WTHM 设备支持 IEEE 802.11 b/g/n 标准2.4 GHz 频段 Wi-Fi网络，暂不支持5G 频段 Wi-Fi网络。
 
 ## 1. 进入配网模式
 
@@ -44,4 +44,19 @@
 你可在设备液晶屏幕上查看Wi-Fi网络连接状态。
 
 
+!!! note "Wi-Fi 认证模式支持说明"
+
+    本产品在标准配网模式下，默认支持采用以下个人级安全协议 (Personal Security Protocols) 的 Wi-Fi 接入点 (AP)：
+
+    *   WPA-Personal / WPA2-Personal (基于 PSK, Pre-Shared Key)
+    *   WPA3-Personal (基于 SAE, Simultaneous Authentication of Equals)
+    *   WPA2/WPA3 混合/过渡模式 (Mixed/Transition Mode)
+
+    如需连接至采用其他认证方式的无线网络，例如：
+
+    *   企业级认证 (Enterprise Authentication)，如 WPA/WPA2/WPA3-Enterprise (基于 802.1X/EAP)
+    *   开放网络 (Open / Unsecured Networks)
+    *   旧式 WEP 协议 (Legacy WEP protocol)
+
+    请联系我们的技术支持团队以获取高级配置指南。
 
