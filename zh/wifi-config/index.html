@@ -88,7 +88,7 @@
               
                 <h1 id="wi-fi">Wi-Fi配网说明</h1>
 <p>为使 WTHM 设备联网，你需要为其配置当前可用的Wi-Fi网络信息，包括Wi-Fi AP的网络名称（SSID）和密码。</p>
-<p>⚠️ <strong>注意</strong>： WTHM 设备只支持2.4G Wi-Fi网络，暂不支持5G Wi-Fi网络。</p>
+<p>⚠️ <strong>注意</strong>： WTHM 设备支持 IEEE 802.11 b/g/n 标准2.4 GHz 频段 Wi-Fi网络，暂不支持5G 频段 Wi-Fi网络。</p>
 <h2 id="1">1. 进入配网模式</h2>
 <p>在 WTHM 设备面板上 <strong><em>同时</em></strong> 按住 <strong>↑</strong> 和 <strong>↓</strong> 按键3秒钟进入Wi-Fi配网流程。
 当液晶屏显示 "Entering setup..." 后可松开按键。</p>
@@ -111,6 +111,22 @@
 <h2 id="3-wi-fi">3. 设备上查看Wi-Fi连接状态</h2>
 <p>完成配网操作后 WTHM 设备会自动退出配网模式，并尝试连接所配置的Wi-Fi网络。</p>
 <p>你可在设备液晶屏幕上查看Wi-Fi网络连接状态。</p>
+<div class="admonition note">
+<p class="admonition-title">Wi-Fi 认证模式支持说明</p>
+<p>本产品在标准配网模式下，默认支持采用以下个人级安全协议 (Personal Security Protocols) 的 Wi-Fi 接入点 (AP)：</p>
+<ul>
+<li>WPA-Personal / WPA2-Personal (基于 PSK, Pre-Shared Key)</li>
+<li>WPA3-Personal (基于 SAE, Simultaneous Authentication of Equals)</li>
+<li>WPA2/WPA3 混合/过渡模式 (Mixed/Transition Mode)</li>
+</ul>
+<p>如需连接至采用其他认证方式的无线网络，例如：</p>
+<ul>
+<li>企业级认证 (Enterprise Authentication)，如 WPA/WPA2/WPA3-Enterprise (基于 802.1X/EAP)</li>
+<li>开放网络 (Open / Unsecured Networks)</li>
+<li>旧式 WEP 协议 (Legacy WEP protocol)</li>
+</ul>
+<p>请联系我们的技术支持团队以获取高级配置指南。</p>
+</div>
               
             </div>
           </div><footer>
